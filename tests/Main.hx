@@ -1,3 +1,0 @@
-function main() {
-	JsonTest.main();
-}

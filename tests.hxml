@@ -1,5 +1,5 @@
 -cp tests
--m Main
+-m TestMain
 
 -cp api
 
