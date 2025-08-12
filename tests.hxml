@@ -1,0 +1,6 @@
+-cp tests
+-m Main
+
+-cp api
+
+-hl tests.hl

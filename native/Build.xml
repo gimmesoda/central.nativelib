@@ -1,0 +1,42 @@
+<xml>
+	<pragma once="true"/>
+
+	<files id="json">
+		<compilerflag value="-I${HASHLINK}/include"/>
+
+		<compilerflag value="-Ilib/yyjson/src"/>
+		<file name="lib/yyjson/src/yyjson.c"/>
+
+		<file name="src/json.cpp"/>
+	</files>
+
+	<target id="default" output="nativelib" toolid="dll" tool="linker">
+		<section if="mingw">
+			<lib name="-lpsapi" />
+			<lib name="-ladvapi32" />
+		</section>
+
+		<section if="windows" unless="mingw">
+			<lib name="psapi.lib" />
+			<lib name="advapi32.lib" />
+		</section>
+
+		<section if="mingw || macos || linux">
+			<lib name="-lpthread" />
+		</section>
+		
+		<section if="windows">
+			<libpath name="${HASHLINK}"/>
+			<lib name="libhl.lib"/>
+		</section>
+		<section unless="windows">
+			<libpath name="/usr/local/lib"/>
+			<lib name="-lhl"/>
+		</section>
+
+		<ext value=".hdll"/>
+		<outdir name="obj"/>
+
+		<files id="json"/>
+	</target>
+</xml>
