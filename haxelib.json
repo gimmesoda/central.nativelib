@@ -1,0 +1,7 @@
+{
+	"name": "central.nativelib",
+	"license": "MIT",
+	"releasenote": "json parsing",
+	"contributors": [ "gimmesoda" ],
+	"version": "0.1.0"
+}
